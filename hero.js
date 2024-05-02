@@ -34,7 +34,7 @@ class Hero {
     this.activeOrb = null;
     this.nextOrbitalHit = 0;
     this.ultActive = 0;
-    this.powerUpOne = 0; // after beating 1st boss, update to 1 (init 0)
+    this.powerUpOne = 1; // hero is able to use crit upgrade as default ability
     this.powerUpTwo = 0; // after beating 2nd boss, update to 1 (init 0)
 
     // 0 = right, 1 = left
