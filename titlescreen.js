@@ -10,6 +10,8 @@ class TitleScreen {
     this.attack = new animator(this.spritesheet, 7 * 60, 0, 60, 54, 4, 0.08, true);
     this.dash = new animator(this.spritesheet, 24 * 60, 0, 60, 54, 6, 0.08, true);
     this.parry = new animator(this.spritesheet, 18 * 60, 0, 60, 54, 1, 0.08, true);
+    this.jump = new animator(this.spritesheet, 16 * 60, 0, 60, 54, 2, 1, true);
+    this.shoot = new animator(this.spritesheet, 11 * 60, 0, 60, 54, 5, 0.08, true);
 
     this.playTitleMusic = true;
 
@@ -265,29 +267,43 @@ class TitleScreen {
       ctx.strokeText("Return", 630, 650);
       ctx.font = '22px "Press Start 2P"';
 
-      ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/wasd.png"), 0, 0, 235, 155, 300, 150, 3 * PARAMS.BLOCKWIDTH, 2.5 * PARAMS.BLOCKWIDTH);
-      ctx.strokeText("To move, press W A S D", 420, 185);
-      ctx.fillText("To move, press W A S D", 420, 185);
+      // ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/wasd.png"), 0, 0, 235, 155, 300, 150, 3 * PARAMS.BLOCKWIDTH, 2.5 * PARAMS.BLOCKWIDTH);
+      // ctx.strokeText("To move, press W A S D", 420, 185);
+      // ctx.fillText("To move, press W A S D", 420, 185);
 
-      this.attack.drawFrame(this.game.clockTick, ctx, 20, 350, PARAMS.SCALE);
-      ctx.fillText("J To Attack", 20, 385);
-      ctx.strokeText("J To Attack", 20, 385);
+      this.attack.drawFrame(this.game.clockTick, ctx, 20, 100, PARAMS.SCALE);
+      ctx.fillText("J To Attack", 20, 350);
+      ctx.strokeText("J To Attack", 20, 350);
 
-      this.parry.drawFrame(this.game.clockTick, ctx, 320, 350, PARAMS.SCALE);
-      ctx.fillText("K To Parry", 320, 385);
-      ctx.strokeText("K To Parry", 320, 385);
+      this.parry.drawFrame(this.game.clockTick, ctx, 320, 100, PARAMS.SCALE);
+      ctx.fillText("K To Parry", 320, 350);
+      ctx.strokeText("K To Parry", 320, 350);
 
-      this.dash.drawFrame(this.game.clockTick, ctx, 620, 350, PARAMS.SCALE);
-      ctx.fillText("L To Dash", 620, 385);
-      ctx.strokeText("L To Dash", 620, 385);
+      this.dash.drawFrame(this.game.clockTick, ctx, 620, 100, PARAMS.SCALE);
+      ctx.fillText("L To Dash", 620, 350);
+      ctx.strokeText("L To Dash", 620, 350);
 
-      ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/heroAbilities.png"), 0, 0, 32, 32, 920, 385, PARAMS.BLOCKWIDTH, PARAMS.BLOCKWIDTH);
-      ctx.fillText("U for Ultimate", 920, 385);
-      ctx.strokeText("U for Ultimate", 920, 385);
+      this.jump.drawFrame(this.game.clockTick, ctx, 60, 350, PARAMS.SCALE);
+      ctx.fillText("A To Jump", 60, 590);
+      ctx.strokeText("A To Jump", 60, 590);
 
-      ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/heroAbilities.png"), 0, 64, 32, 32, 920, 485, PARAMS.BLOCKWIDTH, PARAMS.BLOCKWIDTH);
-      ctx.fillText("O for Orbital Strike", 920, 485);
-      ctx.strokeText("O for Orbital Strike", 920, 485);
+      this.shoot.drawFrame(this.game.clockTick, ctx, 360, 350, PARAMS.SCALE);
+      ctx.fillText("I to Shoot", 360, 590);
+      ctx.strokeText("I to Shoot", 360, 590);
+
+      ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/heroAbilities.png"), 0, 0, 32, 32, 920, 180, PARAMS.BLOCKWIDTH, PARAMS.BLOCKWIDTH);
+      ctx.fillText("U for Ultimate", 920, 180);
+      ctx.strokeText("U for Ultimate", 920, 180);
+
+      ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/heroAbilities.png"), 0, 64, 32, 32, 920, 290, PARAMS.BLOCKWIDTH, PARAMS.BLOCKWIDTH);
+      ctx.fillText("O for Orbital Strike", 920, 290);
+      ctx.strokeText("O for Orbital Strike", 920, 290);
+
+      ctx.fillText("W, A, S, D", 920, 410);
+      ctx.strokeText("W, A, S, D", 920, 410);
+      ctx.fillText("for Movement", 920, 440);
+      ctx.strokeText("for Movement", 920, 440);
+      
     } else if (this.title == 4) {
       ctx.font = '50px "Press Start 2P"';
       ctx.fillStyle = "White";
