@@ -12,6 +12,7 @@ class TitleScreen {
     this.parry = new animator(this.spritesheet, 18 * 60, 0, 60, 54, 1, 0.08, true);
     this.jump = new animator(this.spritesheet, 16 * 60, 0, 60, 54, 2, 1, true);
     this.shoot = new animator(this.spritesheet, 11 * 60, 0, 60, 54, 5, 0.08, true);
+    this.move = new animator(this.spritesheet, 60, 0, 60, 54, 6, 0.08, true);
 
     this.playTitleMusic = true;
 
@@ -287,9 +288,9 @@ class TitleScreen {
       ctx.fillText("A To Jump", 60, 590);
       ctx.strokeText("A To Jump", 60, 590);
 
-      this.shoot.drawFrame(this.game.clockTick, ctx, 360, 350, PARAMS.SCALE);
-      ctx.fillText("I to Shoot", 360, 590);
-      ctx.strokeText("I to Shoot", 360, 590);
+      this.shoot.drawFrame(this.game.clockTick, ctx, 320, 350, PARAMS.SCALE);
+      ctx.fillText("I to Shoot", 320, 590);
+      ctx.strokeText("I to Shoot", 320, 590);
 
       ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/heroAbilities.png"), 0, 0, 32, 32, 920, 180, PARAMS.BLOCKWIDTH, PARAMS.BLOCKWIDTH);
       ctx.fillText("U for Ultimate", 920, 180);
@@ -299,10 +300,11 @@ class TitleScreen {
       ctx.fillText("O for Orbital Strike", 920, 290);
       ctx.strokeText("O for Orbital Strike", 920, 290);
 
-      ctx.fillText("W, A, S, D", 920, 410);
-      ctx.strokeText("W, A, S, D", 920, 410);
-      ctx.fillText("for Movement", 920, 440);
-      ctx.strokeText("for Movement", 920, 440);
+      this.move.drawFrame(this.game.clockTick, ctx, 620, 350, PARAMS.SCALE);
+      ctx.fillText("W, A, S, D", 800, 560);
+      ctx.strokeText("W, A, S, D", 800, 560);
+      ctx.fillText("for Movement", 800, 590);
+      ctx.strokeText("for Movement", 800, 590);
       
     } else if (this.title == 4) {
       ctx.font = '50px "Press Start 2P"';
